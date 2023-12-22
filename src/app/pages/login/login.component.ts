@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { IUser } from '../../interfaces/iuser.interface';
-import { getLocaleCurrencySymbol } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +24,12 @@ export class LoginComponent {
         //     password: password
         // }
         console.log(JSON.stringify(user))
-        return console.log(this.httpClient.post<IUser>(`http://localhost:3000/auth/login`, JSON.stringify(user)))
+        return this.httpClient.post<IUser>(`${environment}auth/login`, JSON.stringify(user)).subscribe(
+          (qualquer) => {
+            console.log(qualquer)
+          }
+        )
+        
     }
 
   // constructor(private loginService: LoginService){}
