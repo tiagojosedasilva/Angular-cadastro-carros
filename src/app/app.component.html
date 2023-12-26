@@ -1,10 +1,17 @@
 <nav>
   
-  <div>
+  <div *ngIf="!autenticado">
     <ul>
       <li><a [routerLink]="['']" >Home</a></li>
       <li><a [routerLink]="['/login']" >Login</a></li>
       <li><a [routerLink]="['/register']" >Cadastre-se</a></li>
+    </ul>
+  </div>
+  <div *ngIf="autenticado">
+    <ul>
+      <li><a [routerLink]="['']" >Home</a></li>
+      <li><a [routerLink]="['/listar']" >Listar</a></li>
+      <li><a [routerLink]="['/insert-car']" >Cadastrar Novo</a></li>
     </ul>
   </div>
 </nav>

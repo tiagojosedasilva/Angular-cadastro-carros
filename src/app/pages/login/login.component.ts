@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { LoginService } from './login.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
-import { IUser } from '../../interfaces/iuser.interface';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -13,20 +12,24 @@ import { IUser } from '../../interfaces/iuser.interface';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  user = {email: '', password: '' }
+  // user = {email: '', password: ''}
+    email:string = ''
+    password: string =''
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private appComponent: AppComponent) {}
 
   
-    login(user: IUser){
-        // const user = {
-        //     email: email,
-        //     password: password
-        // }
-        console.log(JSON.stringify(user))
-        return this.httpClient.post<IUser>(`${environment}auth/login`, JSON.stringify(user)).subscribe(
-          (qualquer) => {
-            console.log(qualquer)
+    login(){
+        const user = {
+            email: this.email,
+            password: this.password
+        }
+        //console.log(user)
+        return this.httpClient.post(`${environment}auth/login`, user).subscribe(
+          (token) => {
+            console.log(token)
+            localStorage.setItem('token_user', JSON.stringify(token))
+            this.appComponent.autenticado = true;
           }
         )
         

@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+td{
+    padding: 5px;
+    border: 1px solid black;
+}
+table{
+    border: 1px solid black;
+}
