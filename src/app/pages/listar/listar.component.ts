@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ICarros } from '../../interfaces/icarros.interface';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 import { AppService } from '../../app.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet, RouterModule } from '@angular/router';
+import { PagesModule } from '../pages.module';
 
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [ HttpClientModule ],
+  imports: [CommonModule, RouterOutlet, PagesModule, RouterModule, FormsModule, HttpClientModule],
   providers: [ AppService],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'

@@ -1,13 +1,12 @@
 <div class="container">
     <div class="box">
-        <div><h3>Cadastre-se</h3></div>
+        <div><h3>Cadastrar novo carro</h3></div>
         <div class="form">
-            <form action="">
-                <input type="text" placeholder="Nome">
-                <input type="text" placeholder="Sobrenome">
-                <input type="text" placeholder="Email">
-                <input type="text" placeholder="Password">
-                <button type="submit">Entrar</button>
+            <form action="" (ngSubmit)="cadastrarCarro(carro)">
+                <input type="text" placeholder="Marca" [(ngModel)]="carro.marca" [ngModelOptions]="{standalone: true}">
+                <input type="text" placeholder="Modelo" [(ngModel)]="carro.modelo" [ngModelOptions]="{standalone: true}">
+                <input type="text" placeholder="Ano" [(ngModel)]="carro.ano" [ngModelOptions]="{standalone: true}">
+                <button type="submit">Enviar</button>
             </form>
         </div>
     </div>

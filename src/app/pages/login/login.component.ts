@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { AppComponent } from '../../app.component';
+import { LoginInterceptor } from '../../interceptors/login.interceptor';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [ FormsModule ],
+  
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -30,9 +32,9 @@ export class LoginComponent {
             console.log(token)
             localStorage.setItem('token_user', JSON.stringify(token))
             this.appComponent.autenticado = true;
+            console.log(localStorage.getItem("token_user"))
           }
         )
-        
     }
 
   // constructor(private loginService: LoginService){}

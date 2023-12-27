@@ -1,32 +1,31 @@
 <div class="container">
-    <div>
+  <div>
       <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Ano</th>
-            <th scope="col">Criado por</th>
-            <th scope="col">Ação</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (carro of carroArray; track carro.id) {
-            <tr>
-              <td>{{carro.id}}</td>
-              <td>{{carro.marca}}</td>
-              <td>{{carro.modelo}}</td>
-              <td>{{carro.ano}}</td>
-              <td>{{carro.emailUser}}</td>
-              <td>
-                <button>editar</button>
-                <button>excluir</button>
-                <!-- <button [routerLink]="['/editar', user.id]">Editar</button> 
-                <button type="button" class="btn btn-danger btn-sm ml-1" (click)="excluirUsuario(user.id)">Deletar</button> -->
-              </td>
-          }
-        </tbody>
+          <thead>
+              <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Marca</th>
+                  <th scope="col">Modelo</th>
+                  <th scope="col">Ano</th>
+                  <th scope="col">Criado por</th>
+                  <th scope="col">Ação</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let carro of carroArray">
+                  <td>{{carro.id}}</td>
+                  <td>{{carro.marca}}</td>
+                  <td>{{carro.modelo}}</td>
+                  <td>{{carro.ano}}</td>
+                  <td>{{carro.emailUser}}</td>
+                  <td>
+                      <button>editar</button>
+                      <button>excluir</button>
+                      <!-- <button [routerLink]="['/editar', user.id]">Editar</button> 
+                      <button type="button" class="btn btn-danger btn-sm ml-1" (click)="excluirUsuario(user.id)">Deletar</button> -->
+                  </td>
+              </tr>
+          </tbody>
       </table>
-    </div>
   </div>
+</div>
