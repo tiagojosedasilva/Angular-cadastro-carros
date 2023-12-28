@@ -20,4 +20,9 @@ export class AppService {
     console.log(carro)
     return this.httpClient.post<ICarros>(`${environment}cars`, carro).toPromise()
   }
+
+  excluirCarro(id: string){
+    console.log(id)
+    return this.httpClient.delete<ICarros>(`${environment}cars/${id}`).toPromise()
+  }
 }

@@ -29,6 +29,8 @@ export class LoginComponent {
         //console.log(user)
         return this.httpClient.post(`${environment}auth/login`, user).subscribe(
           (token) => {
+
+            
             console.log(token)
             localStorage.setItem('token_user', JSON.stringify(token))
             this.appComponent.autenticado = true;
