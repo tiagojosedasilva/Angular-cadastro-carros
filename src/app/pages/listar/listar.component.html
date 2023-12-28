@@ -19,9 +19,9 @@
                   <td>{{carro.ano}}</td>
                   <td>{{carro.emailUser}}</td>
                   <td>
-                    
-                    <button>Editar</button>
-                    <button (click)="deletar(carro.id)">Excluir</button>
+
+                    <button [routerLink]="['/editar', carro.id]" class="editar">Editar</button>
+                    <button (click)="deletar(carro.id)" class="excluir">Excluir</button>
                       <!-- <button [routerLink]="['/editar', user.id]">Editar</button> 
                       <button type="button" class="btn btn-danger btn-sm ml-1" (click)="excluirUsuario(user.id)">Deletar</button> -->
                   </td>

@@ -6,7 +6,28 @@
 td{
     padding: 5px;
     border: 1px solid black;
+}tr:hover{
+    transition: 0.8s;
+    background-color: gray;    
 }
+
 table{
     border: 1px solid black;
+}
+.editar{
+    background-color: #9c27b0;
+    padding: 5px;
+    border-radius: 10px;
+}.editar:hover{
+    zoom: 1.1;
+    transition: 0.8s;
+}
+.excluir{
+    border-radius: 10px;
+    background-color: #ad2027;
+    padding: 5px;
+}
+.excluir:hover{
+    transition: 0.8s;
+    zoom: 1.1;
 }

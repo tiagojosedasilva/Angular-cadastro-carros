@@ -17,12 +17,14 @@ export class AppService {
   }
 
   cadastrarCarro(carro: ICarros){
-    console.log(carro)
     return this.httpClient.post<ICarros>(`${environment}cars`, carro).toPromise()
   }
 
   excluirCarro(id: string){
-    console.log(id)
     return this.httpClient.delete<ICarros>(`${environment}cars/${id}`).toPromise()
+  }
+
+  editarCarro(id: string, carro: ICarros){
+    return this.httpClient.patch<ICarros>(`${environment}cars/${id}`, carro).toPromise()
   }
 }

@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { InsertCarComponent } from './pages/insert-car/insert-car.component';
+import { EditCarComponent } from './pages/edit-car/edit-car.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path: 'insert-car',
         component: InsertCarComponent
+    },
+    {
+        path: 'editar/:id',
+        component: EditCarComponent
     },
 ];

@@ -29,20 +29,11 @@ export class LoginComponent {
         //console.log(user)
         return this.httpClient.post(`${environment}auth/login`, user).subscribe(
           (token) => {
-
-            
-            console.log(token)
+            // console.log(token)
             localStorage.setItem('token_user', JSON.stringify(token))
             this.appComponent.autenticado = true;
-            console.log(localStorage.getItem("token_user"))
+            // console.log(localStorage.getItem("token_user"))
           }
         )
     }
-
-  // constructor(private loginService: LoginService){}
-
-  // login(user: { email: string; password: string; }){
-  //   return this.loginService.login(user.email, user.password)
-  //   // console.log(user.email, user.password)
-  // }
 }

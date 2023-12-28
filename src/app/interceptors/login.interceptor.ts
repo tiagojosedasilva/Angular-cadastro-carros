@@ -11,7 +11,6 @@ export class LoginInterceptor implements HttpInterceptor{
         req: HttpRequest<any>,
         next: HttpHandler
         ): Observable<HttpEvent<any>> {
-            console.log("Tum tchitchi chama")
 
         if(localStorage.getItem("token_user") == '' || null){
             return next.handle(req)
@@ -20,17 +19,14 @@ export class LoginInterceptor implements HttpInterceptor{
         var token = localStorage.getItem("token_user") || "{token: ''}"
 
         const tokenString: {token: string} = JSON.parse(token)
-        console.log(req)
-        console.log(token)
         if(token !== null){
             const authRequest = req.clone({
                 headers: req.headers.set('Authorization', ( JSON.stringify(token) ) ? 'Bearer ' + tokenString.token: ''),
             })
 
-            console.log(authRequest.headers)
+            // console.log(authRequest.headers)
             return next.handle(authRequest)
         }
-        console.log('Deu erro   --------' + req)
         return next.handle(req)
     }
 }
